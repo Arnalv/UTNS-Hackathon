@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Arnalv/UTNS-Hackathon#readme",
   "dependencies": {
     "body-parser": "^1.20.3",
+    "boxicons": "^2.1.4",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "pg": "^8.13.3"

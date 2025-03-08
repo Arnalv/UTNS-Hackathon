@@ -1,0 +1,17 @@
+#website-name {
+    size: 3rem;
+}
+
+.col-3 {
+    display: flex;
+    justify-content: center;
+}
+
+#user-settings {
+    display: flex;
+    justify-content: right;
+}
+#row1{
+    font-size: 3rem;
+
+}
