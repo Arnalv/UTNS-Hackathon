@@ -8,19 +8,25 @@
     <link href="error.css" rel="stylesheet">
   </head>
     <body>
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center align-items-center">
-                    <h1><b>You Logged In</b></h1>
+        <div class="container-fluid" style="background-color: lightblue;">
+            <div class="d-flex justify-content-center align-items-center vh-100">
+              <div class="border border-dark border-5 p-5 rounded-3 text-center" style="text-align: center; background-color: aliceblue; transform: scale(1.8);">
+                <h1><b>You Logged In</b></h1>
+                  <a href="/schedule/<%= username %>"><button>Go to Schedule</button></a>
+              </div>
+            </div>
+          </div>
+        <!-- <div class="container-fluid">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="col-12">
+                    
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center align-items-center">
-                    <a href="/schedule/<%= username %>"><button>Schedule</button></a>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="col-12"></div>
                 </div>
             </div>
-        </div>
+        </div> -->
         
     </body>
 </html>

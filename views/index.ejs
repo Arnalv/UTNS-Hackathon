@@ -15,13 +15,13 @@
             <h1 id="title-2">The Motivational Scheduler</h1>
           </div>
           <div class="col-5">
-            <img src="schedule-icon.png">
+            <img src="schedule-icon.png" id="img">
           </div>
         </div>
         <div class="row">
           <div class="col-12 cover-buttons text-center">
-            <a href="login"><button type="button" class="btn btn-primary">Log In</button></a>
-            <a href="/register"><button type="button" class="btn btn-secondary">Sign Up</button></a>
+            <a href="login"><button type="button" class="btn btn-outline-primary">Log In</button></a>
+            <a href="/register"><button type="button" class="btn btn-primary">Sign Up</button></a>
           </div>
         </div>
     </div>
@@ -34,16 +34,18 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script>
       function onload_file() {
-        const elem = document.getElementById("title-2");
+        const text = document.getElementById("title-2");
+        const img = document.getElementById("img");
         let opacity_1 = 0;
         const fade = setInterval(function() {
           if (opacity_1 >= 1) {
             clearInterval(fade);  // Stop the interval once opacity reaches 1
           } else {
             opacity_1 += 0.01;  // Increment the opacity
-            elem.style.opacity = opacity_1;  // Apply the new opacity
+            text.style.opacity = opacity_1;  // Apply the new opacity
+            img.style.opacity = opacity_1;
           }
-        }, 30);  // Set the interval to execute every 20ms
+        }, 25);  // Set the interval to execute every 20ms
       }
       onload_file()
     </script>
