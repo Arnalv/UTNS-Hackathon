@@ -17,10 +17,13 @@
   },
   "homepage": "https://github.com/Arnalv/UTNS-Hackathon#readme",
   "dependencies": {
+    "axios": "^1.8.2",
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
     "boxicons": "^2.1.4",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "pg": "^8.13.3"
+    "pg": "^8.13.3",
+    "puppeteer": "^24.4.0"
   }
 }

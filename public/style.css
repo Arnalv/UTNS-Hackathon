@@ -1,0 +1,36 @@
+
+
+h1, #cover-buttons {
+  margin: 1rem;
+  align-content: center;
+  align-items: center;
+  
+}
+
+button {
+    margin: 5px;
+}
+
+#cover {
+  margin: 0;
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+  /* -ms-transform: translate(-50%, -50);
+  transform: translate(-50%, -50%); */
+}
+
+
+html, body, #cover {
+    background-color: lightblue;
+    margin: 0 !important;
+} 
+
+#navbar header {
+    background-color: white;
+} 
+
+#cover h1 {
+    font-size: 7.5em;
+    float: right;
+}
