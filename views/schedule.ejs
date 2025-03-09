@@ -29,6 +29,8 @@
             <form action="/schedule/<%= username %>" method="POST">
               <label for="username">Add Task:</label><br>
               <input type="text" name="task" required><br><br>
+              <label for="username">Description:</label><br>
+              <input type="text" name="desc" placeholder="optional"><br><br>
               <button type="submit">Submit</button>
             </form>
           <!-- <div class="col-md-3">
@@ -40,21 +42,29 @@
           <table style="width: 100%; border-spacing: 3rem; border-collapse: separate; font-weight: bold"">
             <tr>
               <td>Items</td>
+              <td>Description</td>
               <td>Streak</td>
             </tr>
             <% for(let item of items){%>
             <tr>
               <td><%= item.item %></td>
+              <td><%= item.description %></td>
               <td>
                 <div style="float: left; margin-right: 1rem; padding-right: 15px;"><%= item.streak%> </div>
                 <div style="display: flex;">
-                  <form action="/schedule/streak-add/<%= username %>/<%= item.id%>" method="POST"><button type="submit" style="width: 2em; margin-right: 10px;">+</button></form>
-                  <form action="/schedule/streak-reset/<%= username %>/<%= item.id%>" method="POST"><button type="submit" style="width: 2em;"><i class='bx bx-reset'></i></button></form>
+                  <form action="/schedule/streak-add/<%= username %>/<%= item.id%>" method="POST"><button type="submit" style="width: 2em;">+</button></form>
+                  <form action="/schedule/streak-reset/<%= username %>/<%= item.id%>" method="POST"><button type="submit" style="width: 2em;"><i class='bx bx-reset'></i></button></form>  
+                  <form action="/schedule/task-delete/<%= username %>/<%= item.id%>" method="POST"><button type="submit" style="width: 2em;"><i class='bx bxs-trash-alt'></i></button></form>
                 </div>
               </td>
             </tr>
             <% } %>
           </table>
+        </div>
+        <div class="row">
+          <div class="col-5">
+
+          </div>
         </div>
     </div>
 

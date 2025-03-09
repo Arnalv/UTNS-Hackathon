@@ -6,10 +6,9 @@ import bcrypt from "bcrypt";
 const app = express();
 const port = 3000;
 const saltRounds = 10;
-const localIpaddr = "192.168.1.217"
 const db = new pg.Client({
     user: "postgres",
-      host: "192.168.1.206",
+      host: "10.68.32.129",
       database: "hackathon",
       password: "admin",
       port: "5432",
@@ -22,6 +21,11 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
     res.render("index.ejs");
 })
+
+app.get("/aboutus", (req, res) => {
+    res.render("aboutus.ejs");
+})
+
 
 app.get("/register", (req, res) => {
     res.render("register.ejs");
@@ -72,10 +76,19 @@ app.post("/schedule/streak-reset/:username/:id", async (req, res) => {
         console.log(err);
     }
 })
-
+app.post("/schedule/task-delete/:username/:id", async (req, res) => {
+    const id = req.params.id;
+    console.log(id)
+    try {
+        await db.query("DELETE FROM todolist WHERE id = $1", [id]);
+        res.redirect(`/schedule/${req.params.username}`);
+    } catch (err) {
+        console.log(err);
+    }
+})
 app.get("/schedule/:username", async (req, res) => {
     const username = req.params.username
-    const items = await db.query(`SELECT item, streak, id FROM todolist WHERE username = $1 ORDER BY id`, [req.params.username])
+    const items = await db.query(`SELECT item, streak, id, description FROM todolist WHERE username = $1 ORDER BY id`, [req.params.username])
     console.log(items.rows)
     res.render("schedule.ejs", {username: username, items: items.rows});
 })
@@ -83,7 +96,7 @@ app.post("/schedule/:username/", async (req, res) => {
     const item = req.body.task;
   // items.push({title: item});
   try {
-    await db.query("INSERT INTO todolist (item, username) VALUES ($1, $2)", [item, req.params.username]);
+    await db.query("INSERT INTO todolist (item, username, description) VALUES ($1, $2, $3)", [item, req.params.username, req.body.desc]);
     res.redirect(`/schedule/${req.params.username}`);
   } catch (err) {
     console.log(err);
